@@ -1,0 +1,34 @@
+import os
+def obtener_datos_pelicula():
+    nombre = input("Ingrese el nombre de la película: ")
+    while True:
+        try:
+            año = int(input("Ingrese el año de estreno: "))
+            break
+        except ValueError:
+            print("Error. Año no valido")
+    return nombre, año
+
+if __name__ == "__main__":
+    peliculas = []
+    peliculas_por_año = {} 
+
+    for i in range(5):
+        print(f"\nPelícula {i + 1}:")
+        nombre, año = obtener_datos_pelicula()  #Desempaquetado de tuplas, cada valor que retorna la funcion se asocia en el orden de las variables
+        peliculas.append(nombre)
+
+        if año in peliculas_por_año:
+            peliculas_por_año[año].append(nombre)   #Año ya existe, se agrega el nombre a la lista con clave año ingresado
+        else:
+            peliculas_por_año[año] = [nombre]   #Año no existe, se agrega una lista con el nombre ingresado y la clave es el año.
+
+    peliculas.sort()
+    os.system("cls")
+    print("\nPelículas ordenadas por nombre:")
+    for pelicula in peliculas:
+        print(pelicula)
+
+    print("\nPelículas agrupadas por año de estreno:")
+    for año, pelis in peliculas_por_año.items():
+        print(f"{año}: {', '.join(pelis)}") #Join une todos los elementos de la lista en una cadena separada por comas

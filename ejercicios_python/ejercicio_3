@@ -1,0 +1,23 @@
+import sys
+def suma(a, b):
+    return a+b
+def resta(a, b):
+    return a-b
+def multiplicacion(a, b):
+    return a*b
+def division(a, b):
+    if b != 0:
+        return a/b
+    else:
+        return "No se puede dividir por cero"
+    
+if __name__ == "__main__":
+    try:
+        n1 = float(input("Ingrese el primer número: "))
+        n2 = float(input("Ingrese el segundo número: "))
+        print(f"Suma: {n1} + {n2} = {suma(n1, n2)}")
+        print(f"Resta: {n1} - {n2} = {resta(n1, n2)}")
+        print(f"Multiplicación: {n1} * {n2} = {multiplicacion(n1, n2)}")
+        print(f"División: {n1} / {n2} = {division(n1, n2)}")
+    except:
+        print("Error. Los parametros no son números")
