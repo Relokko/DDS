@@ -14,7 +14,7 @@ class Libro:
         año_actual = datetime.now().year
         return (año_actual - self.año) > 50
 
-libro1 = Libro("Libro 1", "Tomi", 1967, "Crimen")
+libro1 = Libro("Libro 1", "Tomi", 1990, "Crimen")
 libro2 = Libro("Libro 2", "Yisus", 1925, "Fantasia")
 
 print("Detalles del libro 1:")
